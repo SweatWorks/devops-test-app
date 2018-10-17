@@ -3,7 +3,7 @@
 
 ### Endpoints
 
-`GET /users`
-`GET /version`
-`GET /health`
-`GET /ready`
+* `GET /users`
+* `GET /version`
+* `GET /health`
+* `GET /ready`
