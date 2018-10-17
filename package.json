@@ -1,0 +1,159 @@
+{
+  "name": "devops-test",
+  "version": "0.0.1",
+  "description": "Devops Test",
+  "contributors": [],
+  "private": true,
+  "homepage": "https://github.com/SweatWorks/devops-test-app#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SweatWorks/devops-test-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SweatWorks/devops-test-app/issues"
+  },
+  "main": "app.js",
+  "scripts": {
+    "build": "npm run clean && npm run build-dist",
+    "build-dist": "node_modules/.bin/babel -d dist . -s --ignore test,node_modules",
+    "clean": "rm -rf dist && mkdir -p dist/bin dist/node_modules && cp bin/start dist/bin/start && cp -r node_modules dist/node_modules",
+    "cover": "nyc npm test && nyc report --reporter=text-lcov > coverage.lcov && node_modules/.bin/codecov",
+    "coverhtml": "nyc npm test && nyc report --reporter=html",
+    "lint": "node_modules/.bin/eslint --ignore-pattern 'node_modules/**' --ignore-pattern 'test/**' --fix --format codeframe .",
+    "migrate-create": "node_modules/.bin/sequelize migration:create --config config/sequelize_db_settings.js",
+    "migrate-up": "npm run migrate-run && npm run seed-undo-all && npm run seed-run-all",
+    "migrate-run": "node_modules/.bin/sequelize db:migrate --config config/sequelize_db_settings.js",
+    "migrate-undo": "node_modules/.bin/sequelize db:migrate:undo --config config/sequelize_db_settings.js",
+    "seed-create": "node_modules/.bin/sequelize seed:generate --config config/sequelize_db_settings.js",
+    "seed-run-all": "node_modules/.bin/sequelize db:seed:all --config config/sequelize_db_settings.js",
+    "seed-run-one": "node_modules/.bin/sequelize db:seed --config config/sequelize_db_settings.js",
+    "seed-undo-all": "node_modules/.bin/sequelize db:seed:undo:all --config config/sequelize_db_settings.js",
+    "seed-undo-one": "node_modules/.bin/sequelize db:seed:undo --config config/sequelize_db_settings.js",
+    "serve": "node dist/bin/start",
+    "start": "node bin/start",
+    "start-dev": "node_modules/.bin/pm2-docker start pm2.config.json",
+    "test": "node_modules/mocha/bin/mocha test/unit/ --require babel-register --require babel-polyfill --recursive",
+    "test-integration": "node_modules/.bin/mocha test/integration --require babel-register --require babel-polyfill --recursive",
+    "generate-api-docs": "aglio --theme-variables streak -i docs/api.apib -o docs/api-output.html"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ]
+  },
+  "eslintConfig": {
+    "extends": "airbnb",
+    "env": {
+      "browser": true,
+      "es6": true,
+      "mocha": true,
+      "node": true
+    },
+    "parser": "babel-eslint",
+    "rules": {
+      "max-len": [
+        "error",
+        120,
+        4
+      ],
+      "arrow-body-style": 0,
+      "arrow-parens": 0,
+      "class-methods-use-this": 0,
+      "consistent-return": 0,
+      "default-case": 0,
+      "func-names": 0,
+      "global-require": 0,
+      "import/no-dynamic-require": 0,
+      "import/no-mutable-exports": 0,
+      "jsx-a11y/href-no-hash": "off",
+      "jsx-a11y/anchor-is-valid": [
+        "warn",
+        {
+          "aspects": [
+            "invalidHref"
+          ]
+        }
+      ],
+      "new-cap": 0,
+      "no-confusing-arrow": 0,
+      "no-else-return": 0,
+      "no-loop-func": 0,
+      "no-param-reassign": 0,
+      "no-underscore-dangle": 0,
+      "no-unused-expressions": 0,
+      "prefer-template": 0,
+      "quote-props": 0,
+      "react/jsx-filename-extension": [
+        1,
+        {
+          "extensions": [
+            ".js",
+            ".jsx"
+          ]
+        }
+      ]
+    }
+  },
+  "dependencies": {
+    "authorizenet": "^1.0.4",
+    "avatax": "^18.5.1",
+    "axios": "^0.18.0",
+    "babel-polyfill": "~6.26.0",
+    "babel-register": "~6.26.0",
+    "bcrypt": "^1.0.3",
+    "bluebird": "~3.5.1",
+    "body-parser": "~1.18.2",
+    "commander": "~2.13.0",
+    "connect-datadog": "~0.0.6",
+    "cors": "^2.8.4",
+    "express": "~4.16.2",
+    "firebase": "^4.10.1",
+    "firebase-admin": "^5.10.0",
+    "fs": "0.0.1-security",
+    "graphql-request": "^1.5.2",
+    "hot-shots": "^5.0.0",
+    "jsonwebtoken": "^8.2.0",
+    "lodash": "~4.17.4",
+    "moment-timezone": "^0.5.17",
+    "object.entries": "~1.0.4",
+    "path": "~0.12.7",
+    "pg": "~7.4.1",
+    "pg-hstore": "~2.3.2",
+    "q": "^1.5.1",
+    "sequelize": "^4.37.6",
+    "sequelize-cli": "^4.0.0",
+    "serve-favicon": "~2.4.5",
+    "sha1": "^1.1.1",
+    "soap": "^0.24.0",
+    "validator": "^9.4.1",
+    "winston": "~2.4.0"
+  },
+  "devDependencies": {
+    "babel-cli": "~6.26.0",
+    "babel-eslint": "~8.2.1",
+    "babel-preset-env": "~1.6.1",
+    "chai": "~4.1.2",
+    "chai-http": "^4.0.0",
+    "codecov": "~3.0.0",
+    "eslint": "~4.16.0",
+    "eslint-config-airbnb": "~16.1.0",
+    "eslint-plugin-import": "~2.8.0",
+    "eslint-plugin-jsx-a11y": "~6.0.3",
+    "eslint-plugin-react": "~7.5.1",
+    "mocha": "~5.0.0",
+    "nyc": "~11.4.1",
+    "pm2": "~2.9.1",
+    "sequelize-mock": "^0.10.2",
+    "sinon": "~4.2.2",
+    "sinon-chai": "~2.14.0",
+    "sinon-stub-promise": "~4.0.0",
+    "supertest": "^3.0.0"
+  }
+}
