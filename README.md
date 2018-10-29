@@ -4,6 +4,7 @@
 ### Endpoints
 
 * `GET /users`
+* `GET /files`
 * `GET /version`
 * `GET /health`
 * `GET /ready`

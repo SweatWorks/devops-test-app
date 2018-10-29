@@ -2,7 +2,6 @@ import express from 'express';
 
 import logger from '../utils/logger';
 import { usersController } from '../controllers/users/users';
-// import authorizations from '../middleware/authorization';
 
 const router = express('Router');
 
