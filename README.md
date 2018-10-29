@@ -19,7 +19,51 @@ The application consist in two general endpoints, these are `GET /users` and `GE
 ### Endpoints description
 
 * `GET /users`
+
+This endpoint returns a fixed number of users (2) registered in the postgres database with the following structure:
+
+```json
+{
+"meta": {
+	"count" : 2
+},
+
+"data": [
+	{
+		"id": 1,
+		"username": "Fake User 1",
+		"email": "foo@email.com",
+		"created_at": "2018-10-17T15:46:08.0003Z",
+		"updated_at": "2018-10-17T15:46:08.0003Z",
+		},
+	{
+		"id": 2,
+		"username": "Fake User 2",
+		"email": "bar@email.com",
+		"created_at": "2018-10-17T15:46:08.0003Z",
+		"updated_at": "2018-10-17T15:46:08.0003Z",
+		}
+	]
+}
+```
+
 * `GET /files`
+
+This endpoint returns the total number of items and the name of the files (2) stored in a s3 bucket with the following structure:
+
+```json
+{
+"meta": {
+	"count" : 1
+},
+
+"data": {
+		"number_of_items": 2,
+		"filenames": ["foo.txt", "bar.txt"]
+	}
+}
+```
+
 * `GET /version`
 
 This endpoint returns the actual version of the software running and it's uptime in seconds
