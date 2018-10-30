@@ -5,7 +5,6 @@ import path from 'path';
 import cors from 'cors';
 
 
-// import datadogMetrics from './metrics/datadog'; /** Not used yet*/
 import errorController from './controllers/errors';
 import logger from './utils/logger';
 import routes from './routes';
@@ -22,10 +21,6 @@ app.set('models', require('./models'));
 app.use(bodyParser.json({ limit: '1mb' })); // sets payload limit
 app.use(bodyParser.urlencoded({ extended: false })); // url encoding
 app.use(express.static(path.join(__dirname, 'public'))); // sets a static route to public
-//app.use(favicon(path.join(__dirname, 'public/favicon.ico'))); // sets favicon
-
-// set up metrics via datadog
-// app.use(datadogMetrics); /** Not used yet*/
 
 // Set up routes
 Object.keys(routes).forEach((route) => {

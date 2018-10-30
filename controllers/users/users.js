@@ -4,9 +4,7 @@ import models from '../../models';
 
 // Set up params for factory
 const factoryParams = {
-  //user: models.user,
   model : models.user,
- // allowedFilters: ['pending', 'active'],
 };
 
 

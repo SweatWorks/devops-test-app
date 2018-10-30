@@ -1,6 +1,5 @@
 #!/usr/bin/env node --use_strict
 
-// require('newrelic'); // TODO: get new relic license for logging
 require('babel-register');
 require('babel-polyfill');
 require('object.entries').shim();
