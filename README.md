@@ -122,7 +122,7 @@ You will need the following tools to operate over `devops-test-app`:
 - `nodejs` = 8.11
 - `postgres` >= 9.4
 
-### Local deployment
+### Local development/deployment
 
 To run this application locally, please execute the following commands in your terminal:
 
