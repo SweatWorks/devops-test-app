@@ -76,7 +76,7 @@ This endpoint returns the actual version of the software running and it's uptime
 
 "data": {
 	"uptime": 82467,
-	"version": "0.1.0"
+	"version": "0.1.1"
 	}
 }
 ```
@@ -136,6 +136,19 @@ $ cd devops-test-app
 
 ```bash
 $ npm install
+```
+
+- Create a postgres database for the application
+
+```bash
+postgres=# CREATE DATABASE testdb;
+
+```
+
+- Run migrations and seeders
+
+```bash
+$ npm run migrate-up
 ```
 
 - Run the application
