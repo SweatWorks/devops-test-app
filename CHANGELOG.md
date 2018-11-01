@@ -1,5 +1,12 @@
 # Change Log
 
+## [0.1.1](https://github.com/SweatWorks/devops-test-app/tree/0.1.1) (2018-11-01)
+[Full Changelog](https://github.com/SweatWorks/devops-test-app/compare/0.1.0...0.1.1)
+
+**Merged pull requests:**
+
+- Feature/readme updates [\#4](https://github.com/SweatWorks/devops-test-app/pull/4) ([mauhftw](https://github.com/mauhftw))
+
 ## [0.1.0](https://github.com/SweatWorks/devops-test-app/tree/0.1.0) (2018-10-30)
 **Merged pull requests:**
 
