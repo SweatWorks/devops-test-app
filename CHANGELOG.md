@@ -1,5 +1,12 @@
 # Change Log
 
+## [0.1.2](https://github.com/SweatWorks/devops-test-app/tree/0.1.2) (2018-11-06)
+[Full Changelog](https://github.com/SweatWorks/devops-test-app/compare/0.1.1...0.1.2)
+
+**Merged pull requests:**
+
+- Fix case sensitive issue [\#5](https://github.com/SweatWorks/devops-test-app/pull/5) ([achi2211](https://github.com/achi2211))
+
 ## [0.1.1](https://github.com/SweatWorks/devops-test-app/tree/0.1.1) (2018-11-01)
 [Full Changelog](https://github.com/SweatWorks/devops-test-app/compare/0.1.0...0.1.1)
 
