@@ -4,7 +4,7 @@ import config from '../../helpers/config_helper';
 import ResponseHelper from '../../helpers/response_helper';
 import httpConstants from '../../config/http_constants';
 import BaseController from '../utils/controller_factory';
-import S3ServiceLib from '../utils/S3Service';
+import S3ServiceLib from '../utils/s3Service';
 
 // setup using the custom aws keys from the config file
 const accessKeyId = config.aws.access_key;
